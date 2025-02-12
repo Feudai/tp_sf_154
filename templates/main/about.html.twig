@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolor illo impedit nobis numquam odit sint, veritatis voluptas. Aliquid architecto consequuntur dolorum ducimus illum ipsa rerum veniam voluptas? Atque consequuntur debitis error, itaque officia quaerat repudiandae. Ad modi recusandae voluptas.</p>
+    <div class="card-group">
+        {% for creator in creators %}
+            <div class="card">
+                <img class="card-img-top w-100" src="{{ creator.picture }}" alt="{{ creator.firstname }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ creator.firstname ~ " " ~ creator.lastname }}
+                        {% if creator.firstname is same as "Fabien" %}
+                            &#10084;
+                        {% endif %}
+                    </h5>
+                    <p class="card-text">BirthDate : {{ creator.dateOfBirth | date('d-m-Y') }}</p>
+                    <p class="card-text">{{ creator.description }}</p>
+                    <p class="card-text"><small class="text-muted">Creator of {{ creator.creatorOf }}</small></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

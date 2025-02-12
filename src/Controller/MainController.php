@@ -12,7 +12,18 @@ final class MainController extends AbstractController
     public function home(): Response
     {
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'title' => 'Home',
+        ]);
+    }
+
+    #[Route('/about-us', name: 'main_about')]
+    public function about(): Response
+    {
+        $creatorsData = file_get_contents('../assets/resources/team.json');
+        $creators = json_decode($creatorsData, true);
+        return $this->render('main/about.html.twig', [
+            'title' => 'About us',
+            'creators' => $creators,
         ]);
     }
 }
