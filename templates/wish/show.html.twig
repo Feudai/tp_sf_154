@@ -3,7 +3,9 @@
 {% block title %}{{ title }} | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h2>Wish Detail</h2>
-
-
+    <h2>{{ wish.title }}</h2>
+    {# on utilise le filtre date() pour convertir l'objet en chaîne #}
+    <p class="wish-credit">Created by {{ wish.author }} on {{ wish.createdAt|date('Y-m-d') }}</p>
+    {# le filtre nl2br convertie les sauts de ligne du texte en balises <br> #}
+    <div>{{ wish.description|nl2br }}</div>
 {% endblock %}

@@ -3,7 +3,12 @@
 {% block title %}{{ title }} | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h2>Wish List</h2>
-
-
+    <section class="wishes-list">
+        <h2>All wishes!</h2>
+        {% for wish in wishes %}
+            <article>
+                <a href="{{ path('wish_detail', {id: wish.id}) }}" title="View this wish in details">{{ wish.title }}</a>
+            </article>
+        {% endfor %}
+    </section>
 {% endblock %}
