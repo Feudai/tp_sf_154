@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h2>Create a new Wish</h2>
+    <form method="post">
+        <ul><li>
+        <label for="idTitle">Titre</label>
+        <input id="idTitle" type="text" name="title" required>
+            </li>
+            <li>
+        <label for="idDescription">Description</label>
+        <input id="idDescription" type="text" name="description">
+            </li>
+            <li>
+        <label for="idAuthor">Auteur</label>
+        <input id="idAuthor" type="text" name="author" required>
+            </li>
+            <li>
+        <label for="idPublished">Apparaît sur le site</label>
+        <input id="idPublished" type="checkbox" name="published" >
+            </li></ul>
+        <button type="submit">Valider</button>
+    </form>
+{% endblock %}

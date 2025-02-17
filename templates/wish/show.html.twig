@@ -4,6 +4,22 @@
 
 {% block body %}
     <h2>Wish Detail</h2>
-
+    <ul>
+        <li>
+           Titre :  {{ wish.title }}
+        </li>
+        <li>
+           Description :  {{ wish.description }}
+        </li>
+        <li>
+           Auteur :  {{ wish.author }}
+        </li>
+        <li>
+            Crée le {{ wish.createdAt | date('d-m-y à H:i:s')}}
+        </li>
+        <li>
+           Publiée :  {{ wish.isPublished?"Oui":"Non" }}
+        </li>
+    </ul>
 
 {% endblock %}
