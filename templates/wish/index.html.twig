@@ -3,18 +3,16 @@
 {% block title %}{{ title }} | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h2>Wish List</h2>
-    <ul>
-        {% for w in wishes %}
-            <li>
-                <a href="{{ path('wish_detail',{id:w.id}) }}">
-                {{ w.title }}
-                </a>
-            </li>
+    <section class="wishes-list">
+        <h2>All wishes!</h2>
+        {% for wish in wishes %}
+            <article>
+                <a href="{{ path('wish_detail', {id: wish.id}) }}" title="View this wish in details"><strong>{{ wish.title }}</strong></a>
+                <p>Votre souhaite en détail : {{ wish.description }}</p>
+                <p>Créé le {{ wish.createdAt | date('d-m-Y à H:i:s') }}</p>
+                <p>Par {{ wish.author }}</p>
+                <p> Publié : {{ wish.isPublished ? 'Oui' : 'Non' }}</p>
+            </article>
         {% endfor %}
-    </ul>
-
-<a href="{{ path('wish_create') }}">Create a new Wish</a>
-  <!--  <a href="{#{ path('wish_delete') }  #}">Create a new Wish</a> -->
-
+    </section>
 {% endblock %}
